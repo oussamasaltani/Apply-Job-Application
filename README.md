@@ -1,4 +1,4 @@
-# Job Application
+# Apply Job Application
 
 A modern, responsive job application form built with HTML, CSS, and Vanilla JavaScript. Features smooth animations, real-time validation, and a premium user experience.
 
