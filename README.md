@@ -18,7 +18,7 @@ A modern, responsive job application form built with HTML, CSS, and Vanilla Java
 - **Smart Input Fields**: Icons, placeholders, and validation states
 - **Skills Management**: Add/remove skills with autocomplete suggestions
 - **File Upload**: PDF-only CV upload with validation
-- **Character Counter**: Live count for cover letter (800 char limit)
+- **Character Counter**: Live count for cover letter (800 char limit).
 - **Experience Slider**: Interactive range slider for years of experience
 
 ### 🔧 Technical Features
