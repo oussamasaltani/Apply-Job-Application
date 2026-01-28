@@ -1,0 +1,702 @@
+/* CSS Variables for Theme */
+:root {
+    --primary-color: #00D4ff;
+    --primary-hover: #4338ca;
+    --secondary-color: #6b7280;
+    --bg: #f9fafb;
+    --card: #ffffff;
+    --text: #111827;
+    --muted: #2850a1;
+    --border: #e5e7eb;
+    --error: #ef4444;
+    --success: #10b981;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --primary-color: #00D4ff;
+    --primary-hover: #4f46e5;
+    --secondary-color: #9ca3af;
+    --bg: #111827;
+    --card: #1f2937;
+    --text: #f9fafb;
+    --muted: #d1d5db;
+    --border: #374151;
+    --error: #f87171;
+    --success: #34d399;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg);
+    overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-toggle button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    animation: bounce 2s infinite;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin: 20px 0;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+/* Job Details */
+.job-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.job-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+/* Accordion */
+.accordion-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: var(--bg);
+    border: none;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.accordion-header:hover {
+    background-color: var(--primary-color);
+}
+
+.accordion-header i {
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: var(--card);
+}
+
+.accordion-content ul {
+    padding: 20px;
+    list-style: none;
+}
+
+.accordion-content li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+}
+
+/* Sticky Progress */
+.sticky-progress {
+    position: sticky;
+    top: 0;
+    background-color: var(--card);
+    box-shadow: var(--shadow);
+    z-index: 100;
+    padding: 20px 0;
+}
+
+.progress-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.5;
+    transition: var(--transition);
+}
+
+.step.active {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.step i {
+    font-size: 1.5rem;
+}
+
+.step span {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Application Form */
+.application-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container i {
+    position: absolute;
+    left: 15px;
+    color: var(--muted);
+    z-index: 1;
+}
+
+.input-container input,
+.input-container select,
+.input-container textarea {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--card);
+    color: var(--text);
+}
+
+.input-container input:focus,
+.input-container select:focus,
+.input-container textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.input-container input:valid,
+.input-container select:valid,
+.input-container textarea:valid {
+    border-color: var(--success);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.input-container input:invalid,
+.input-container select:invalid,
+.input-container textarea:invalid {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Phone Input Container */
+.phone-field {
+    display: flex;
+    align-items: stretch;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background-color: var(--card);
+    transition: var(--transition);
+}
+
+.phone-field:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.phone-field:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.phone-field select {
+    flex: 0 0 120px;
+    padding: 12px 8px;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.phone-field select:focus {
+    outline: none;
+}
+
+.phone-field .input-container {
+    flex: 1;
+    border-left: 1px solid var(--border);
+}
+
+.phone-field .input-container input {
+    border: none;
+    border-radius: 0;
+    padding-left: 45px;
+}
+
+.phone-field .input-container input:focus {
+    box-shadow: none;
+}
+
+.phone-field .input-container i {
+    color: var(--muted);
+}
+
+.error-message {
+    display: block;
+    color: var(--error);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    background-color: rgba(239, 68, 68, 0.05);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* Autocomplete Dropdown */
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.autocomplete-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Skills Tags */
+#skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.skill-tag {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.skill-tag .remove-tag {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.skill-tag .remove-tag:hover {
+    color: #e5e7eb;
+}
+
+.skills-counter {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* File Upload */
+.file-name {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.form-actions button {
+    flex: 1;
+    max-width: 200px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--card);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: var(--radius);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: slideInFromBottom 0.3s ease-out;
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--muted);
+}
+
+.close:hover {
+    color: var(--text);
+}
+
+.success-message {
+    text-align: center;
+}
+
+.success-message i {
+    font-size: 4rem;
+    color: var(--success);
+    margin-bottom: 20px;
+}
+
+.success-message h3 {
+    margin-bottom: 15px;
+    color: var(--success);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.modal-actions button {
+    flex: 1;
+    min-width: 120px;
+    max-width: 150px;
+}
+
+/* Icon Interactions */
+.input-container i {
+    transition: var(--transition);
+}
+
+.input-container:hover i,
+.phone-field:hover .input-container i {
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.input-container input:focus + i,
+.input-container select:focus + i,
+.input-container textarea:focus + i {
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.input-container input:valid + i {
+    color: var(--success);
+}
+
+.input-container input:invalid + i {
+    color: var(--error);
+}
+
+/* Loading Spinner */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .progress-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .step {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .job-info {
+        grid-template-columns: 1fr;
+    }
+
+    .input-container input,
+    .input-container select,
+    .input-container textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

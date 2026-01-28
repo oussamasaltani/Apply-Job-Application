@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Job Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header / Hero -->
+    <header class="hero">
+        <div class="theme-toggle">
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        <div class="hero-content">
+            <h1><i class="fas fa-briefcase"></i> Apply for This Position</h1>
+            <p>Join our team and make an impact. We're looking for talented individuals like you!</p>
+            <button class="btn-primary" onclick="scrollToForm()"><i class="fas fa-paper-plane"></i> Start
+                Application</button>
+        </div>
+    </header>
+
+    <!-- Job Details Card -->
+    <section class="job-details">
+        <div class="card">
+            <h2>Job Details</h2>
+            <div class="job-info">
+                <div class="info-item"><i class="fas fa-code"></i> <strong>Position:</strong> Software Developer</div>
+                <div class="info-item"><i class="fas fa-location-dot"></i> <strong>Location:</strong> Remote</div>
+                <div class="info-item"><i class="fas fa-clock"></i> <strong>Type:</strong> Full-time</div>
+                <div class="info-item"><i class="fas fa-chart-line"></i> <strong>Experience:</strong> 2+ years</div>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <i class="fas fa-chevron-down"></i> Responsibilities
+                    </button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Develop and maintain web applications</li>
+                            <li><i class="fas fa-check"></i> Collaborate with cross-functional teams</li>
+                            <li><i class="fas fa-check"></i> Write clean, efficient code</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <i class="fas fa-chevron-down"></i> Qualifications
+                    </button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Bachelor's degree in Computer Science</li>
+                            <li><i class="fas fa-check"></i> Experience with HTML, CSS, JavaScript</li>
+                            <li><i class="fas fa-check"></i> Strong problem-solving skills</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Step Progress -->
+    <div class="sticky-progress">
+        <div class="progress-container">
+            <div class="step active" data-step="1">
+                <i class="fas fa-circle-info"></i>
+                <span>Job Details</span>
+            </div>
+            <div class="step" data-step="2">
+                <i class="fas fa-user"></i>
+                <span>Personal Info</span>
+            </div>
+            <div class="step" data-step="3">
+                <i class="fas fa-link"></i>
+                <span>Links & Skills</span>
+            </div>
+            <div class="step" data-step="4">
+                <i class="fas fa-file-arrow-up"></i>
+                <span>Upload & Cover</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Form -->
+    <section class="application-form" id="form-section">
+        <div class="card">
+            <form id="job-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name *</label>
+                    <div class="input-container">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <div class="input-container">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone *</label>
+                    <div class="phone-field">
+                        <select id="country-code" name="country-code">
+                            <option value="+212">🇲🇦 +212</option>
+                            <option value="+33">🇫🇷 +33</option>
+                            <option value="+34">🇪🇸 +34</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+44">🇬🇧 +44</option>
+                        </select>
+                        <div class="input-container">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
+                        </div>
+                    </div>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City/Country</label>
+                    <div class="input-container">
+                        <i class="fas fa-city"></i>
+                        <input type="text" id="city" name="city">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn URL</label>
+                    <div class="input-container">
+                        <i class="fab fa-linkedin"></i>
+                        <input type="url" id="linkedin" name="linkedin">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="portfolio">Portfolio/GitHub URL</label>
+                    <div class="input-container">
+                        <i class="fas fa-globe"></i>
+                        <input type="url" id="portfolio" name="portfolio">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Position</label>
+                    <div class="input-container">
+                        <i class="fas fa-code"></i>
+                        <select id="position" name="position">
+                            <option value="">Select Position</option>
+                            <option value="frontend">Frontend Developer</option>
+                            <option value="backend">Backend Developer</option>
+                            <option value="fullstack">Full Stack Developer</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Experience (Years): <span id="experience-value">0</span></label>
+                    <div class="input-container">
+                        <i class="fas fa-chart-line"></i>
+                        <input type="range" id="experience" name="experience" min="0" max="10" value="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="skills">Skills *</label>
+                    <div class="input-container">
+                        <i class="fas fa-tags"></i>
+                        <input type="text" id="skills-input" placeholder="Type skill and press Enter">
+                        <div id="autocomplete-dropdown" class="autocomplete-dropdown"></div>
+                    </div>
+                    <div id="skills-tags"></div>
+                    <div class="skills-counter">Skills: <span id="skills-count">0</span>/15</div>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="cv">Upload CV (PDF only) *</label>
+                    <div class="input-container">
+                        <i class="fas fa-file-pdf"></i>
+                        <input type="file" id="cv" name="cv" accept=".pdf" required>
+                    </div>
+                    <span class="file-name"></span>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="cover-letter">Cover Letter *</label>
+                    <div class="input-container">
+                        <i class="fas fa-pen-to-square"></i>
+                        <textarea id="cover-letter" name="cover-letter" rows="5" minlength="10" required></textarea>
+                    </div>
+                    <div class="char-counter"><span id="char-count">0</span> / 800</div>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="previewApplication()">Preview
+                        Application</button>
+                    <button type="submit" class="btn-primary" disabled>Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Application Preview</h3>
+            <div id="preview-content"></div>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="editSection('personal')">Edit Personal Info</button>
+                <button class="btn-secondary" onclick="editSection('links')">Edit Links & Skills</button>
+                <button class="btn-secondary" onclick="editSection('upload')">Edit Upload & Cover</button>
+                <button class="btn-primary" onclick="downloadPDF()">Download as PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="success-message">
+                <i class="fas fa-circle-check"></i>
+                <h3>Application Submitted Successfully!</h3>
+                <p>Thank you for applying. We'll review your application and get back to you soon.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
